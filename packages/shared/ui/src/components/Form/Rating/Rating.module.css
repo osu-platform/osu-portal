@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  padding: 12px;
+}
+
+.element {
+  position: relative;
+  color: var(--p-color-bg-primary);
+}
+
+.element:focus-visible {
+  outline: 2px solid var(--p-color-link);
+}
+
+.element--picked {
+  position: absolute;
+  color: var(--p-color-link);
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  opacity: 0;
+}

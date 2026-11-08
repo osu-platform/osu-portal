@@ -1,0 +1,22 @@
+.wrapper {
+  cursor: pointer;
+  display: block;
+
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  transition: opacity 0.15s ease-in-out;
+  opacity: var(--p-pagination-dot-opacity-selected, 0.25);
+  background: var(
+    --p-pagination-dot-bg-selected,
+    var(--p-color-link)
+  );
+}
+
+.wrapper--selected {
+  opacity: 1;
+}

@@ -1,0 +1,22 @@
+.textarea {
+  padding: 12px 16px;
+  min-height: 80px;
+
+  width: 100%;
+  resize: none;
+
+  color: var(--p-color-text-primary);
+  outline: none;
+  border: none;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.textarea::placeholder {
+  color: var(--p-color-text-tertiary);
+}
+
+.wrapper--ios .textarea {
+  padding: 16px;
+  min-height: 84px;
+}

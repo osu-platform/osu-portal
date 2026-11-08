@@ -1,0 +1,24 @@
+.wrapper {
+  position: absolute;
+}
+
+.icon {
+  content: "";
+  display: block;
+  transform: translateY(1px);
+  color: var(--p-color-bg-secondary);
+}
+
+.wrapper--placement-right {
+  transform: rotate(90deg) translate(50%, -50%);
+  transform-origin: right;
+}
+
+.wrapper--placement-bottom {
+  transform: rotate(180deg);
+}
+
+.wrapper--placement-left {
+  transform: rotate(-90deg) translate(-50%, -50%);
+  transform-origin: left;
+}

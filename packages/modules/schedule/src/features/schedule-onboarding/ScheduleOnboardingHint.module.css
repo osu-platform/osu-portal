@@ -1,0 +1,156 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+}
+
+/* transparent click-capture zones around spotlight */
+.dark {
+  position: fixed;
+  background: transparent;
+  pointer-events: auto;
+}
+
+/* visual dark overlay + rounded hole via box-shadow */
+.ring {
+  position: fixed;
+  border-radius: 22px;
+  border: 2px solid var(--p-color-accent);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+  animation: pulse-ring 1.6s ease-in-out infinite;
+}
+
+/* For steps without backdrop — more prominent glow */
+.ringHighlight {
+  position: fixed;
+  border-radius: 10px;
+  border: 2px solid var(--p-color-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--p-color-accent) 20%, transparent);
+  pointer-events: none;
+  animation: pulse-highlight 1.4s ease-in-out infinite;
+  z-index: 9001;
+}
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes pulse-highlight {
+  0%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--p-color-accent) 15%, transparent); }
+  50%       { box-shadow: 0 0 0 7px color-mix(in srgb, var(--p-color-accent) 30%, transparent); }
+}
+
+/* ── Tooltip ── */
+
+.tooltip {
+  position: fixed;
+  background: var(--p-color-bg-elevated);
+  border-radius: 16px;
+  padding: 14px 16px 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--p-color-border-subtle);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.arrowUp {
+  position: absolute;
+  top: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--p-color-bg-elevated);
+}
+
+.arrowDown {
+  position: absolute;
+  bottom: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--p-color-bg-elevated);
+}
+
+.arrowRight {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--p-color-bg-elevated);
+}
+
+/* Tooltip without backdrop — slightly more compact */
+.tooltipClean {
+  z-index: 9001;
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.tapLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--p-color-accent);
+}
+
+.counter {
+  font-size: 12px;
+  color: var(--p-color-text-tertiary);
+}
+
+.tooltipTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--p-color-text-primary);
+  line-height: 1.2;
+}
+
+.tooltipDesc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--p-color-text-secondary);
+  line-height: 1.4;
+}
+
+.tooltipActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.skipBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  color: var(--p-color-text-tertiary);
+  cursor: pointer;
+}
+
+.nextBtn {
+  background: var(--p-color-action-primary-bg);
+  border: none;
+  color: var(--p-color-action-primary-text);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}

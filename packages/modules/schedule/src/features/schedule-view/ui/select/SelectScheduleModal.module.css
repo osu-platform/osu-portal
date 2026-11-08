@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sessionTitle {
+  text-align: center;
+  font-size: 24px;
+  padding: 2px 1rem 16px;
+}
+
+.current {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-inline: 1rem;
+}
+
+.currentChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.favorites {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-inline: 1rem;
+}
+
+.favoritesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--p-color-surface-section);
+  padding-bottom: calc(5px + var(--p-safe-area-inset-bottom, 0));
+}
+
+.actions {
+  padding-top: 4px;
+  padding-inline: 1rem;
+}
+
+.defaultOption {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+}

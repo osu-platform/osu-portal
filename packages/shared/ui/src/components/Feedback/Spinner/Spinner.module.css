@@ -1,0 +1,7 @@
+.wrapper {
+  color: var(--p-color-link);
+}
+
+.wrapper--ios {
+  color: var(--p-color-text-tertiary);
+}

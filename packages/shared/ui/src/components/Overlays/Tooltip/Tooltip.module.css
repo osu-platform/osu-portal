@@ -1,0 +1,26 @@
+.wrapper {
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--p-color-static-black);
+  background: var(--p-color-static-white);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrapper--dark {
+  box-shadow: none;
+  color: var(--p-color-static-white);
+  background: var(--p-color-overlay-inverse-bg);
+}
+
+.wrapper .arrow {
+  color: var(--p-color-static-white);
+}
+
+.wrapper--dark .arrow {
+  color: var(--p-color-overlay-inverse-bg);
+}
+
+.wrapper--ios .wrapper--dark {
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}

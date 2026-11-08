@@ -1,0 +1,48 @@
+.wrapper {
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 2px;
+  box-sizing: border-box;
+
+  border-radius: 44px;
+  background: var(--p-color-bg-primary);
+}
+
+.body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+  border-radius: inherit;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  transition: transform 150ms;
+  border-radius: 40px;
+  z-index: var(--p-z-simple);
+  box-sizing: border-box;
+  background: var(--p-color-bg-secondary);
+}
+
+.wrapper--ios {
+  border-radius: 9px;
+  background: var(--p-color-bg-primary);
+}
+
+.wrapper--ios .slider {
+  border: var(--p-border-width) solid var(--p-color-border-subtle);
+  border-radius: inherit;
+  box-shadow:
+    0 3px 1px 0 rgba(0, 0, 0, 0.04),
+    0 3px 8px 0 rgba(0, 0, 0, 0.12);
+}

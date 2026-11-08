@@ -1,0 +1,165 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 16px 40px;
+  max-width: 720px;
+  margin: 0 auto;
+  font-family: Roboto, system-ui, sans-serif;
+  color: var(--p-color-text-primary);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.primaryLink {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: var(--p-color-action-primary-bg);
+  color: var(--p-color-action-primary-text);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--p-color-bg-secondary);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.subTitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.hint {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.6;
+  line-height: 1.5;
+}
+
+.status {
+  margin: 0;
+  font-size: 13px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.moduleName {
+  font-weight: 600;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--p-color-bg-primary);
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.control select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--p-color-border-subtle);
+  background: var(--p-color-bg-primary);
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.linkButton {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--p-color-accent);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slotName {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.5;
+}
+
+.widgetFrame {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--p-color-bg-primary);
+  border: 1px dashed var(--p-color-border-subtle);
+}
+
+.footer {
+  font-size: 12px;
+  opacity: 0.5;
+  padding-top: 4px;
+}

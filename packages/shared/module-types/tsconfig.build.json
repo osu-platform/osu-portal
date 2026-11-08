@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "paths": {
+      "@portal/shared-module-types/*": ["packages/modules/*/api/public"]
+    }
+  },
+  "include": ["modules/**/*"]
+}

@@ -1,0 +1,24 @@
+name: Public frontend checks
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm validate-modules
+      - run: pnpm type-check
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm build:host
+      - run: node scripts/public-tree.mjs --out ../public-frontend
+      - run: node scripts/public-tree.mjs --check ../public-frontend
+      # No deployment, publishing credentials or automatic repository writes.

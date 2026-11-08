@@ -1,0 +1,55 @@
+/**
+ * Global Styles
+ *
+ * Uses semantic theme tokens (--p-*) from ThemeProvider
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* :root {
+  color-scheme: var(--p-color-scheme);
+} */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  /* запрет на горизонтальный скрол */
+  overflow-x: hidden;
+}
+
+body {
+  /* Font family is handled by ThemeProvider (css.ts injectThemeVariables) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: var(--p-color-bg-secondary);
+  color: var(--p-color-text-primary);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: var(--p-color-text-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}

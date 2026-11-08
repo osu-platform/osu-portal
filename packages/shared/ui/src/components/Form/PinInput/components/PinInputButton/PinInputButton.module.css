@@ -1,0 +1,18 @@
+.wrapper {
+  width: var(--p-pin-input-button-width);
+  height: 56px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 16px;
+  color: var(--p-color-text-primary);
+  background: var(--p-color-bg-primary);
+}
+
+.wrapper--ios {
+  width: 76px;
+  height: 76px;
+
+  border-radius: 50%;
+}

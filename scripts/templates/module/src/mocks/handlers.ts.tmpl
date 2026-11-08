@@ -1,0 +1,18 @@
+import type { MockHandler } from "@portal/module-sdk/mock"
+
+/**
+ * Offline fixtures for __MODULE_TITLE__.
+ *
+ * They live with the module so they travel with it and double as test data.
+ * Anything the module requests and this file does not cover fails loudly in
+ * the DevKit — that is intentional.
+ */
+export function createMockHandlers(): MockHandler[] {
+  return [
+    // {
+    //   method: "get",
+    //   url: "/api/v1/__MODULE_ID__",
+    //   response: { items: [] },
+    // },
+  ]
+}

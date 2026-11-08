@@ -1,0 +1,36 @@
+{
+  "name": "@portal/app-module-host",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "portal": {
+    "perimeter": "exportable",
+    "reason": "Host of the isolated delivery — ships to contributors and to the university"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.19.0",
+    "@portal/module-sdk": "workspace:*",
+    "@portal/runtime": "workspace:*",
+    "@portal/shared-api": "workspace:*",
+    "@portal/shared-assets": "workspace:*",
+    "@portal/shared-config": "workspace:*",
+    "@portal/shared-lib": "workspace:*",
+    "@portal/shared-module-types": "workspace:*",
+    "@portal/shared-platform": "workspace:*",
+    "@portal/shared-theme": "workspace:*",
+    "@portal/shared-ui": "workspace:*",
+    "@tanstack/react-query": "^5.17.15",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.8.0",
+    "@portal/module-composition": "workspace:*"
+  },
+  "devDependencies": {
+    "@portal/modules-schedule": "workspace:*"
+  }
+}

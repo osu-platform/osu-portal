@@ -1,0 +1,130 @@
+.container {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  z-index: 100;
+}
+
+/* Hidden SVG filters */
+.svgFilters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.tabbar {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 280px;
+  max-width: 360px;
+  width: calc(100% - 32px);
+  height: 60px;
+  padding: 0 8px;
+  border-radius: 100px;
+
+  /* Apple Liquid Glass effect - proper blur + minimal transparency */
+  /* Dark theme (default) */
+  background: rgba(26, 28, 30, 0.7);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.5),
+    0 4px 16px -4px rgba(0, 0, 0, 0.3);
+
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+
+  /* Safari fallback with displacement filter */
+  @supports not (hanging-punctuation: first) {
+    backdrop-filter: url(#displacementFilter) blur(20px);
+  }
+}
+
+/* Light theme overrides */
+:root[data-p-scheme="light"] .tabbar {
+  /* Light glass - higher opacity white with subtle tint */
+  background: rgba(255, 255, 255, 0.65);
+
+  /* Darker border for light background */
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+
+  /* Lighter, more subtle shadows */
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.15),
+    0 4px 16px -4px rgba(0, 0, 0, 0.08);
+}
+
+.tabItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  /* Dark theme - white icons with transparency */
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  font-family:
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Light theme - dark icons */
+:root[data-p-scheme="light"] .tabItem {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.tabItem.active {
+  /* Use accent color */
+  color: var(--p-color-accent) !important;
+}
+
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.tabItem:active .iconWrapper {
+  transform: scale(0.9);
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+.icon path {
+  fill: currentColor;
+  transition: fill 0.2s ease;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+}

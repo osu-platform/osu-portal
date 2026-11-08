@@ -1,0 +1,35 @@
+{
+  "name": "@portal/app-portal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "portal": {
+    "perimeter": "exportable",
+    "reason": "Public portal application"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:https": "VITE_HTTPS=1 vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@portal/module-sdk": "workspace:*",
+    "@portal/modules-schedule": "workspace:*",
+    "@portal/runtime": "workspace:*",
+    "@portal/shared-api": "workspace:*",
+    "@portal/shared-assets": "workspace:*",
+    "@portal/shared-config": "workspace:*",
+    "@portal/shared-lib": "workspace:*",
+    "@portal/shared-module-types": "workspace:*",
+    "@portal/shared-platform": "workspace:*",
+    "@portal/shared-theme": "workspace:*",
+    "@portal/shared-ui": "workspace:*",
+    "@portal/shell": "workspace:*",
+    "@tanstack/react-query": "^5.17.15",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.8.0",
+    "@portal/module-composition": "workspace:*"
+  }
+}

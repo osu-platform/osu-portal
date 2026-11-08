@@ -1,0 +1,20 @@
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, system-ui, sans-serif;
+  background: var(--p-color-bg-primary);
+  color: var(--p-color-text-primary);
+}
+
+a {
+  color: var(--p-color-accent);
+}

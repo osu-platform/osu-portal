@@ -1,0 +1,19 @@
+.wrapper {
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  text-decoration: none;
+  transition: opacity 0.15s ease-out;
+  color: var(--p-color-text-tertiary);
+}
+
+.wrapper:active {
+  opacity: 0.5;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wrapper:hover {
+    background: var(--p-color-bg-primary);
+  }
+}

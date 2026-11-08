@@ -1,0 +1,33 @@
+.wrapper {
+  display: inline-flex;
+  border-radius: 12px;
+  border: none;
+  padding: 8px;
+}
+
+.wrapper--s {
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.wrapper--bezeled {
+  color: var(--p-color-link);
+  background: var(--p-color-fill-accent);
+}
+
+.wrapper--plain {
+  color: var(--p-color-link);
+  background: transparent;
+}
+
+.wrapper--gray {
+  /* TODO: возможно вернуть к --p-color-text-primary */
+  color: var(--p-color-link); 
+  background: var(--p-color-fill-neutral);
+}
+
+.wrapper--outline {
+  color: var(--p-color-text-primary);
+  background: inherit;
+  box-shadow: 0 0 0 1px var(--p-color-border-subtle);
+}

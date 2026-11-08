@@ -1,0 +1,20 @@
+.wrapper {
+  position: relative;
+  padding: 6px 28px 8px 12px;
+
+  border-left: 3px solid var(--p-color-link);
+  border-radius: 4px;
+  background: var(--p-color-fill-accent);
+}
+
+.text {
+  color: var(--p-color-text-primary);
+}
+
+.topRightIcon {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+
+  display: block;
+}

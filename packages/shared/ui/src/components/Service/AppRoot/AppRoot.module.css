@@ -1,0 +1,38 @@
+/**
+ * AppRoot
+ *
+ * Корень приложения. Раньше здесь жил мост из токенов темы в переменные
+ * `--tgui--*` унаследованной библиотеки — он удалён: компоненты читают
+ * `--p-*` напрямую. Глобальные токены объявлены в src/styles/tokens.css,
+ * который импортируется из AppRoot.tsx.
+ *
+ * Ветки по схеме (`.wrapper--dark`) тоже не нужны: цвета приходят из
+ * ThemeProvider, который уже учёл и платформу, и выбор пользователя.
+ */
+
+.wrapper {
+  font-family: var(--p-font-family);
+  color: var(--p-color-text-primary);
+
+  /* Контент лежит прямо на корне — это и есть текущая поверхность */
+  --p-surface: var(--p-color-bg-primary);
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/**
+ * iOS: более плотные межстрочные интервалы системного шрифта
+ */
+.wrapper--ios {
+  --p-large-title-line-height: 41px;
+  --p-title1-line-height: 34px;
+  --p-title2-line-height: 28px;
+  --p-title3-line-height: 25px;
+  --p-headline-line-height: 24px;
+  --p-text-line-height: 22px;
+  --p-subheadline1-line-height: 21px;
+  --p-subheadline2-line-height: 20px;
+  --p-caption1-line-height: 16px;
+  --p-caption2-line-height: 13px;
+}

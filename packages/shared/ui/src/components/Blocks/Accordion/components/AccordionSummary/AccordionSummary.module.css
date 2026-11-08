@@ -1,0 +1,8 @@
+.chevron {
+  transition: transform 0.15s ease-out;
+  color: var(--p-color-link);
+}
+
+.chevron--expanded {
+  transform: rotate(180deg);
+}

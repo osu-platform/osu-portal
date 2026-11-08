@@ -1,0 +1,4 @@
+.wrapper {
+  font-size: var(--p-text-font-size);
+  line-height: var(--p-text-line-height);
+}

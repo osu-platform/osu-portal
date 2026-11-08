@@ -1,0 +1,8 @@
+.wrapper {
+  border-radius: 50%;
+}
+
+.wrapper--withAcronym.wrapper--withAcronym {
+  background-color: var(--p-color-fill-accent);
+  color: var(--p-color-link);
+}

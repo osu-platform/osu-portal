@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2021",
+      "DOM",
+      "DOM.Iterable",
+      "WebWorker"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@portal/runtime": [
+        "packages/runtime/src"
+      ],
+      "@portal/shell": [
+        "packages/shell/src"
+      ],
+      "@portal/modules-*": [
+        "packages/modules/*/src"
+      ],
+      "@portal/shared-platform": [
+        "packages/shared/platform/src"
+      ],
+      "@portal/shared-lib": [
+        "packages/shared/lib/src"
+      ],
+      "@portal/shared-ui": [
+        "packages/shared/ui/src"
+      ],
+      "@portal/shared-api": [
+        "packages/shared/api/src"
+      ],
+      "@portal/shared-config": [
+        "packages/shared/config/src"
+      ],
+      "@portal/shared-assets": [
+        "packages/shared/assets/src"
+      ],
+      "@portal/shared-theme": [
+        "packages/shared/theme/src"
+      ],
+      "@portal/shared-module-types": [
+        "packages/shared/module-types/src"
+      ],
+      "@portal/module-sdk": [
+        "packages/shared/module-sdk/src"
+      ],
+      "@portal/module-sdk/mock": [
+        "packages/shared/module-sdk/src/mock"
+      ],
+      "@portal/module-composition": [
+        "./packages/composition/src"
+      ],
+      "@portal/runtime/demo": [
+        "./packages/runtime/src/demo/MockSdkProvider.tsx"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

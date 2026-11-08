@@ -1,0 +1,68 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 0 5rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.timeBlock {
+  height: 0.5rem;
+}
+
+.iconSpacer {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  color: var(--p-color-text-tertiary);
+}
+
+.type {
+  color: var(--p-color-text-tertiary);
+  font-size: 0.85rem;
+}
+
+.subject {
+  font-weight: 600;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pair {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--p-color-text-tertiary);
+}
+
+.timeRange {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.placeholder {
+  opacity: 0.65;
+}
+
+.flex {
+  width: 100%;
+  white-space: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}

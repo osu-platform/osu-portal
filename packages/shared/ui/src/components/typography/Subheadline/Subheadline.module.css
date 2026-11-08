@@ -1,0 +1,9 @@
+.wrapper--1 {
+  font-size: var(--p-subheadline1-font-size);
+  line-height: var(--p-subheadline1-line-height);
+}
+
+.wrapper--2 {
+  font-size: var(--p-subheadline2-font-size);
+  line-height: var(--p-subheadline2-line-height);
+}

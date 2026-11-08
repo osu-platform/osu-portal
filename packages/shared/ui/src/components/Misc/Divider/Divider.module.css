@@ -1,0 +1,6 @@
+.wrapper {
+  margin: 0;
+  border-top: none;
+  border-width: var(--p-border-width);
+  border-color: var(--p-color-border-subtle);
+}

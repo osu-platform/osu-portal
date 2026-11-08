@@ -1,0 +1,13 @@
+{
+  "name": "@portal/module-composition",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@portal/runtime": "workspace:*",
+    "@portal/modules-schedule": "workspace:*",
+    "@portal/module-sdk": "workspace:*"
+  }
+}

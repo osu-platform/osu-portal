@@ -1,0 +1,10 @@
+.wrapper {
+  overflow: hidden;
+  background: var(--p-color-bg-primary);
+  --p-surface: var(--p-color-bg-primary);
+}
+
+.body {
+  max-block-size: 0;
+  transition: max-height 100ms ease-in-out;
+}

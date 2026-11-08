@@ -1,0 +1,26 @@
+.wrapper {
+  cursor: pointer;
+  position: relative;
+}
+
+.wrapper--disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.icon {
+  display: block;
+  color: var(--p-color-border-subtle);
+}
+
+.checkedIcon {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  color: var(--p-color-link);
+  transition: opacity 0.15s ease-out;
+}
+
+.input:checked ~ .checkedIcon {
+  opacity: 1;
+}

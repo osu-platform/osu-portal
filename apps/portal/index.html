@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Неофициальное приложение для студентов Оренбургского государственного университета. Быстрый доступ к расписанию, информации о кампусе и университетским сервисам."
+    />
+    <meta name="theme-color" content="#004F9F" />
+    <meta name="application-name" content="Портал ОГУ" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="ОГУ Портал" />
+
+    <!-- Open Graph & Social Media -->
+    <meta property="og:title" content="Портал ОГУ" />
+    <meta
+      property="og:description"
+      content="Неофициальное приложение для студентов Оренбургского государственного университета"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://app.osuplatform.ru" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Портал ОГУ" />
+    <meta
+      name="twitter:description"
+      content="Неофициальное приложение для студентов ОГУ"
+    />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/svg/osu-logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--p-color-bg-secondary, var(--tg-theme-bg-color));
+      }
+      #global-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--p-color-bg-primary, var(--tg-theme-bg-color));
+        z-index: 9999999;
+        transition:
+          opacity 0.5s ease-in-out,
+          visibility 0.5s ease-in-out;
+      }
+      #global-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #global-loader svg {
+        width: 177px;
+        height: 416px;
+        max-width: 50vw;
+        max-height: 50vh;
+        /* Removed drop-shadow as requested */
+      }
+      #global-loader path {
+        /* Цвет портала через CSS-переменную с запасным значением */
+        fill: var(--p-color-text-primary, var(--tg-theme-text-color, #ffffff));
+        opacity: 0; /* Start hidden for fade-in */
+        transform: translateY(50px) scale(0.9); /* Start position matching V3 hidden state */
+        transform-origin: 50% 25%; /* Match V3 portal origin */
+        transform-box: view-box;
+      }
+
+      /* Appearance Animation */
+      @keyframes osu-appear {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Breathing Animations (Stepped Wave) */
+      /* Delays are handled in the animation definition */
+
+      /* Index 7 (Top) */
+      @keyframes osu-breath-7 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(-16px);
+          animation-timing-function: linear;
+        }
+        62.5% {
+          transform: translateY(-16px);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        87.5% {
+          transform: translateY(0);
+          animation-timing-function: linear;
+        }
+      }
+      /* Index 6 */
+      @keyframes osu-breath-6 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        4.16% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        29.16% {
+          transform: translateY(-16px);
+          animation-timing-function: linear;
+        }
+        58.33% {
+          transform: translateY(-16px);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        83.33% {
+          transform: translateY(0);
+          animation-timing-function: linear;
+        }
+      }
+      /* Index 5 */
+      @keyframes osu-breath-5 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        8.33% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        33.33% {
+          transform: translateY(-16px);
+          animation-timing-function: linear;
+        }
+        54.16% {
+          transform: translateY(-16px);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        79.16% {
+          transform: translateY(0);
+          animation-timing-function: linear;
+        }
+      }
+      /* Index 4 (Bottom) */
+      @keyframes osu-breath-4 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        12.5% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        37.5% {
+          transform: translateY(-16px);
+          animation-timing-function: linear;
+        }
+        50% {
+          transform: translateY(-16px);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        75% {
+          transform: translateY(0);
+          animation-timing-function: linear;
+        }
+      }
+
+      /* Portal Exit Animations */
+      @keyframes osu-portal-7-exit {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        /* Keep opacity 1 to cover the screen with blue */
+        100% {
+          transform: translateY(0) scale(80);
+          opacity: 1;
+        }
+      }
+
+      @keyframes osu-portal-others-exit {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+          filter: blur(0);
+        }
+        100% {
+          transform: translateY(200px) scale(0);
+          opacity: 0;
+          filter: blur(10px);
+        }
+      }
+
+      /* Apply animations */
+      /* 1. Appear: 0.6s ease-out forwards */
+      /* 2. Breath: starts after appear + small hold. Let's say 1.2s delay total */
+
+      .path-emblem {
+        animation: osu-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+
+      .path-anim-4 {
+        animation:
+          osu-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s,
+          osu-breath-4 2.4s infinite 1.4s; /* 0.4s delay + 1s hold */
+      }
+      .path-anim-5 {
+        animation:
+          osu-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.5s,
+          osu-breath-5 2.4s infinite 1.5s;
+      }
+      .path-anim-6 {
+        animation:
+          osu-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s,
+          osu-breath-6 2.4s infinite 1.6s;
+      }
+      .path-anim-7 {
+        animation:
+          osu-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.7s,
+          osu-breath-7 2.4s infinite 1.7s;
+      }
+
+      /* Stagger emblem parts */
+      .path-emblem:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .path-emblem:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .path-emblem:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .path-emblem:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      /* Portal Exit State Triggered by JS */
+      .portal-active {
+        /* Fade out the entire loader (bg + svg) to reveal app */
+        opacity: 0;
+        /* Delay fade out to let portal expand and cover screen first */
+        transition: opacity 0.8s ease-out 1s;
+        pointer-events: none;
+      }
+
+      .portal-active .path-anim-7 {
+        animation: osu-portal-7-exit 1.8s cubic-bezier(0.8, 0, 0.2, 1) forwards !important;
+        animation-delay: 0.1s !important;
+      }
+
+      .portal-active .path-anim-4,
+      .portal-active .path-anim-5,
+      .portal-active .path-anim-6,
+      .portal-active .path-emblem {
+        animation: osu-portal-others-exit 0.8s ease-in forwards !important;
+        animation-delay: 0s !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="global-loader">
+      <svg viewBox="0 0 177 416" xmlns="http://www.w3.org/2000/svg">
+        <path
+          class="path-emblem"
+          d="M96.12,30.82h7.72v42.45c-.98,40.28-30.81,34.75-38.45,32.86l-.06-7.8c3.84,2.24,30.85,9.07,30.9-25.06l-.11-42.45h0Z"
+        />
+        <path
+          class="path-emblem"
+          fill-rule="evenodd"
+          d="M80.76,0c8.47,0,15.34,7.87,15.34,17.57s-6.87,17.57-15.34,17.57-15.34-7.87-15.34-17.57S72.29,0,80.76,0Z M80.76,7.42c-4.89,0-8.86,4.55-8.86,10.15s3.97,10.15,8.86,10.15,8.87-4.55,8.87-10.15-3.97-10.15-8.87-10.15Z"
+        />
+        <path
+          class="path-emblem"
+          d="M57.52,30.84l7.79-.07v34.5c-.08,8.89,3.86,12.13,11.58,11.25v-35.18l15.44-.04v4.35h-7.72v38.59h-7.72c-9.51,0-19.3-2.88-19.3-18.74l-.07-34.66h0Z"
+        />
+        <path
+          class="path-anim-4"
+          d="M169.73,354.35l1.83-100.3h2.19l3.47,127.59c2.97,28.86-17.84,37.44-30.88,34.49l-84.9-13.12v-2.36h68.39c33.42,0,38.99-13.83,39.88-46.31h0Z"
+        />
+        <path
+          class="path-anim-5"
+          d="M3.34,192.3h2.24l6.56,138.93c.96,12.3,12.07,23.9,26.43,23.16h84.9c15.44.57,25.91-10.35,27.2-23.16l6.18-138.93h2.03l3.02,154.37c2.16,35.34-16.98,39.88-38.45,38.59H38.58c-30.24,1.74-40.8-10.15-38.2-38.59l2.96-154.37h0Z"
+        />
+        <path
+          class="path-anim-6"
+          d="M17.63,130.55h2.41l6.69,142.79c1.4,16.51,11.64,23.1,27.07,23.1h57.89c10.37-.59,21.77-6.12,23.35-23.15l6.81-142.73h2.28l-1.63,165.94c0,27.01-7.72,38.59-34.73,38.53h-53.97c-27.07.06-34.79-15.38-34.79-38.53l-1.38-165.94h0Z"
+        />
+        <path
+          class="path-anim-7"
+          d="M34.03,61.05h1.64l6.59,153.35c.16,12.59,11.98,24.63,26.91,24.23l25.46.02c10.33-.07,24.47-8.49,24.68-23.99l6.85-153.61h1.75l-.86,192.99c.71,24.96-11.58,30.87-27.01,30.84h-38.59c-18.38.03-27.02-11.99-27.02-30.84l-.41-192.99h0Z"
+        />
+      </svg>
+    </div>
+    <div id="root"></div>
+    <!-- MAX WebApp SDK loaded synchronously so window.WebApp exists before
+         React starts. Required for mobile native WebView detection where
+         ancestorOrigins is unavailable. -->
+    <!-- Пропускает сообщения релея через фильтр origin в SDK: без него ответы клиента и
+         нажатие «назад» отбрасываются, когда приложение открыто не с зарегистрированного за
+         ботом домена. Доверяет тому origin, с которого загружен. Уйдёт релей — удалить
+         строку. См. tools/max-relay-shim -->
+    <script src="https://st.max.ru/js/max-web-app.js"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

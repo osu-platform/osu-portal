@@ -1,0 +1,30 @@
+.wrapper {
+  --p-pagination-dot-opacity-selected: 0.1;
+  --p-pagination-dot-bg-selected: var(
+    --p-color-link
+  );
+
+  display: inline-flex;
+  gap: 8px;
+  padding: 4px;
+}
+
+.wrapper--ambient {
+  --p-pagination-dot-opacity-selected: 0.25;
+  --p-pagination-dot-bg-selected: var(--p-color-static-white);
+
+  padding: 8px 9px;
+  gap: 6px;
+  border-radius: 28px;
+  background: var(--p-color-overlay-backdrop);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.wrapper--white {
+  --p-pagination-dot-opacity-selected: 0.25;
+  --p-pagination-dot-bg-selected: var(--p-color-static-white);
+
+  gap: 6px;
+  padding: 0;
+}

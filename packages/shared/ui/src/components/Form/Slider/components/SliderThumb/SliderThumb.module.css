@@ -1,0 +1,23 @@
+.wrapper {
+  position: absolute;
+  width: var(--p-slider-thumb-size);
+  height: var(--p-slider-thumb-size);
+  border-radius: 50%;
+  background: var(--p-color-action-primary-bg);
+  user-select: none;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--p-z-simple);
+}
+
+.wrapper--ios {
+  background: var(--p-color-static-white);
+  box-shadow:
+    0 6px 6.5px rgba(0, 0, 0, 0.12),
+    0 0.5px 2px rgba(0, 0, 0, 0.12);
+}
+
+.input {
+  inline-size: 100%;
+  block-size: 100%;
+}

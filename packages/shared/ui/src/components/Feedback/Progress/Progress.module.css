@@ -1,0 +1,23 @@
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.wrapper--base::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background: var(--p-color-link);
+}
+
+.progress {
+  position: absolute;
+  block-size: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease;
+  background: var(--p-color-link);
+  z-index: var(--p-z-simple);
+}

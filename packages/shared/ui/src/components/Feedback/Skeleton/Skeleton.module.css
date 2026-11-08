@@ -1,0 +1,41 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper--visible::before,
+.wrapper--visible::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: var(--p-z-simple);
+}
+
+.wrapper::before {
+  background: var(--p-color-bg-secondary);
+}
+
+.wrapper:not(.wrapper--noAnimation)::after {
+  z-index: var(--p-z-skeleton);
+  background-color: var(--p-color-bg-primary);
+  animation: fade 1.8s linear infinite;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Мерцание здесь — украшение, а не смысл: место будущего контента занято и без
+   него. Тем, кто просил у системы меньше движения, скелетон остаётся ровным
+   пятном. */
+@media (prefers-reduced-motion: reduce) {
+  .wrapper:not(.wrapper--noAnimation)::after {
+    animation: none;
+  }
+}

@@ -1,0 +1,24 @@
+/* Секция задаёт свою поверхность — вложенные поля и ячейки берут фон от неё */
+.wrapper--base .bodyWithHeader {
+  box-shadow: var(--p-shadow-section);
+  background: var(--p-color-surface-section);
+  --p-surface: var(--p-color-surface-section);
+}
+
+.wrapper--ios .body {
+  border-radius: 12px;
+  background: var(--p-color-surface-section);
+  --p-surface: var(--p-color-surface-section);
+}
+
+.wrapper--ios .body > :first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.wrapper--ios .body > :last-child {
+  border-radius: 0 0 12px 12px;
+}
+
+.wrapper--ios .body > :only-child {
+  border-radius: 12px;
+}

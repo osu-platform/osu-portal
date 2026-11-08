@@ -1,0 +1,54 @@
+.timelineItem {
+  cursor: pointer;
+}
+
+/**
+ * Сданный/несданный экзамен: подкрашиваем метку статусным цветом темы.
+ * Раньше здесь переопределялся --p-color-link захардкоженными зелёным
+ * и красным — статус выражался через «цвет ссылки» и не менялся с темой.
+ */
+.timelineItemPassed {
+  cursor: pointer;
+  --p-color-link: var(--p-color-success);
+}
+
+.timelineItemFailed {
+  cursor: pointer;
+  --p-color-link: var(--p-color-destructive);
+}
+
+.subgroupLabel {
+  color: var(--p-color-text-tertiary);
+}
+
+.filterRow {
+  display: flex;
+  padding: 8px 16px 4px;
+}
+
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--p-color-bg-secondary);
+  background: transparent;
+  color: var(--p-color-link);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filterBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--p-color-link);
+  color: var(--p-color-action-primary-text);
+  font-size: 11px;
+  font-weight: 600;
+}

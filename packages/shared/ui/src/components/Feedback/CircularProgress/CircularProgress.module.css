@@ -1,0 +1,4 @@
+.wrapper {
+  stroke: var(--p-color-link);
+  transform: rotate(-90deg);
+}

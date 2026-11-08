@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Branding is parameterised per delivery: values come from .env -->
+    <title>%VITE_APP_NAME%</title>
+    <meta name="description" content="%VITE_APP_DESCRIPTION%" />
+    <meta name="application-name" content="%VITE_APP_NAME%" />
+    <meta name="theme-color" content="%VITE_APP_THEME_COLOR%" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="%VITE_APP_NAME%" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Пропускает сообщения релея через фильтр origin в SDK: без него ответы клиента и
+         нажатие «назад» отбрасываются, когда приложение открыто не с зарегистрированного за
+         ботом домена. Доверяет тому origin, с которого загружен. Уйдёт релей — удалить
+         строку. См. tools/max-relay-shim -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

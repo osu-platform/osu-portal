@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+}
+
+.wrapper--disabled {
+  opacity: 0.35;
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  min-width: 44px;
+  height: 44px;
+
+  color: var(--p-color-text-tertiary);
+  padding: 0 10px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+}
+
+/**
+ * Выбранная страница: полноконтрастный текст на приподнятой подложке.
+ * Раньше здесь стояла переменная --textColor, которую никто не объявлял,
+ * из-за чего цвет наследовался от родителя и совпадал с невыбранными.
+ */
+.button--selected {
+  color: var(--p-color-text-primary);
+  background: var(--p-color-bg-elevated);
+}
+
+.button--disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.button--ellipsis {
+  cursor: default;
+  opacity: 1;
+}
+
+.icon {
+  color: var(--p-color-link);
+}

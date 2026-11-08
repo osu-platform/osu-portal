@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 44px;
+
+  border-radius: 12px;
+  border: 2.5px solid var(--p-color-divider);
+  background: var(--p-color-bg-primary);
+
+  transition: border-color 0.15s ease-out;
+  padding: 0;
+}
+
+.wrapper--ios {
+  width: 13px;
+  height: 13px;
+
+  opacity: 0.1;
+  border: none;
+  border-radius: 50%;
+  background: var(--p-color-link);
+}
+
+.wrapper--ios.wrapper--typed {
+  opacity: 1;
+}
+
+.wrapper:focus-within {
+  border-color: var(--p-color-link);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: var(--p-color-text-primary);
+}

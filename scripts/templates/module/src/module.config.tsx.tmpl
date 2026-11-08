@@ -1,0 +1,31 @@
+/**
+ * Module factory — what the host calls to instantiate __MODULE_TITLE__.
+ *
+ * The host reads `name`, `version`, `routes` and `widgets`; `init()` receives
+ * the SDK. Nothing else about the platform is available, by design.
+ */
+
+import { CONTRACT_VERSION } from "@portal/module-sdk"
+import type { IModule } from "@portal/shared-module-types"
+import routes from "./routes"
+import { __MODULE_PASCAL__Widget } from "./widgets/__MODULE_PASCAL__Widget"
+
+export function createModule(): IModule {
+  return {
+    name: "__MODULE_ID__",
+    version: "0.1.0",
+    contractVersion: CONTRACT_VERSION,
+
+    routes,
+
+    widgets: {
+      // Rendered by the portal home page and by the host's dev dashboard.
+      dashboardWidget: () => <__MODULE_PASCAL__Widget />,
+    },
+
+    init(context) {
+      // Runs once before React renders. `context.sdk` is the whole platform.
+      void context
+    },
+  }
+}

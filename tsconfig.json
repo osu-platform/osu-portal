@@ -1,0 +1,103 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@portal/runtime": [
+        "./packages/runtime/src"
+      ],
+      "@portal/shell": [
+        "./packages/shell/src"
+      ],
+      "@portal/shared-platform": [
+        "./packages/shared/platform/src"
+      ],
+      "@portal/shared-theme": [
+        "./packages/shared/theme/src"
+      ],
+      "@portal/shared-lib": [
+        "./packages/shared/lib/src"
+      ],
+      "@portal/shared-ui": [
+        "./packages/shared/ui/src"
+      ],
+      "@portal/shared-api": [
+        "./packages/shared/api/src"
+      ],
+      "@portal/shared-config": [
+        "./packages/shared/config/src"
+      ],
+      "@portal/shared-assets": [
+        "./packages/shared/assets/src"
+      ],
+      "@portal/shared-module-types": [
+        "./packages/shared/module-types/src"
+      ],
+      "@portal/module-sdk": [
+        "./packages/shared/module-sdk/src"
+      ],
+      "@portal/module-sdk/mock": [
+        "./packages/shared/module-sdk/src/mock"
+      ],
+      "@portal/modules-schedule": [
+        "./packages/modules/schedule/src"
+      ],
+      "helpers/*": [
+        "./packages/shared/ui/src/helpers/*"
+      ],
+      "hooks/*": [
+        "./packages/shared/ui/src/hooks/*"
+      ],
+      "types/*": [
+        "./packages/shared/ui/src/types/*"
+      ],
+      "icons/*": [
+        "./packages/shared/ui/src/icons/*"
+      ],
+      "components/Typography/*": [
+        "./packages/shared/ui/src/components/typography/*"
+      ],
+      "components/Navigation/*": [
+        "./packages/shared/ui/src/components/navigation/*"
+      ],
+      "components/Layout/*": [
+        "./packages/shared/ui/src/components/layout/*"
+      ],
+      "components/*": [
+        "./packages/shared/ui/src/components/*"
+      ],
+      "components": [
+        "./packages/shared/ui/src/components/index.ts"
+      ],
+      "storybook/*": [
+        "./packages/shared/ui/src/storybook/*"
+      ],
+      "@portal/module-composition": [
+        "./packages/composition/src"
+      ],
+      "@portal/runtime/demo": [
+        "./packages/runtime/src/demo/MockSdkProvider.tsx"
+      ]
+    }
+  },
+  "include": [
+    "apps",
+    "packages"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.stories.tsx",
+    "**/*.stories.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "packages/shared/ui/**/helpers/telegram.ts",
+    "packages/shared/ui/**/hooks/helpers/**",
+    "packages/shared/ui/**/simulateReactInput.ts",
+    "apps/*/vite.config.ts",
+    "vitest.config.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+import { lazyPage } from "@portal/shared-lib"
+import type { RouteConfig } from "@portal/shared-module-types"
+
+const __MODULE_PASCAL__Page = lazyPage(
+  () => import("./pages/__MODULE_PASCAL__Page"),
+  "__MODULE_PASCAL__Page"
+)
+
+/**
+ * Top-level entry points of the module.
+ *
+ * Guards: "public" works for a guest, "authenticated" requires an account.
+ * Prefer "public" and degrade gracefully — auth is optional in the DevKit and
+ * in isolated deliveries.
+ */
+const routes: RouteConfig[] = [
+  {
+    path: "/__MODULE_ID__",
+    component: __MODULE_PASCAL__Page,
+    meta: { guard: "public", title: "__MODULE_TITLE__" },
+  },
+]
+
+export default routes

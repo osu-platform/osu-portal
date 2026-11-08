@@ -1,0 +1,35 @@
+.wrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+
+  /* Выпадающий список висит над контентом — он приподнятая поверхность,
+     иначе на экране с тем же фоном его границы не читаются */
+  background: var(--p-color-bg-elevated);
+  --p-surface: var(--p-color-bg-elevated);
+
+  margin-top: 8px;
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-height: 400px;
+  z-index: calc(var(--p-z-overlay) + 1);
+
+  box-shadow:
+    0 32px 64px 0 rgba(0, 0, 0, 0.04),
+    0 0 2px 1px rgba(0, 0, 0, 0.02);
+}
+
+.empty {
+  color: var(--p-color-text-tertiary);
+}
+
+.option {
+  height: 48px;
+  padding: 0 16px;
+}
+
+.selectedIcon {
+  color: var(--p-color-link);
+}

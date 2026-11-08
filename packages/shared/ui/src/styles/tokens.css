@@ -1,0 +1,237 @@
+/**
+ * Design tokens
+ *
+ * Единственный глобальный источник CSS-переменных портала.
+ * Подключается один раз — из AppRoot, вместе с UI-китом.
+ *
+ * Здесь три слоя, и их важно не путать:
+ *
+ * 1. ЦВЕТА ТЕМЫ (`--p-color-*` из пресета) — значения ниже это лишь ФОЛБЭК.
+ *    В рантайме их перезаписывает ThemeProvider через injectThemeVariables.
+ *    Фолбэк нужен, чтобы страница была одета до старта JS и не мигала белым.
+ *    Значения обязаны совпадать с пресетом `dark` — это проверяет тест
+ *    packages/shared/theme/src/__tests__/presets.test.ts
+ *
+ * 2. ПРОИЗВОДНЫЕ ЦВЕТА — вычисляются из токенов темы через color-mix.
+ *    Их НЕТ в пресетах: заливки, состояния наведения, скелетоны и оверлеи
+ *    одинаково выводятся из любой темы, включая пришедшую от Telegram.
+ *
+ * 3. НЕ-ЦВЕТОВЫЕ ТОКЕНЫ — типографика, слои, размеры. От темы не зависят.
+ *
+ * Правило именования: `--p-color-*` — цвет, `--p-*` — всё остальное.
+ * Переменных с другими префиксами в проекте быть не должно.
+ */
+
+:root {
+  /* ======================================================================
+   * 1. Цвета темы — фолбэк, синхронизирован с пресетом `dark`
+   * ==================================================================== */
+
+  --p-color-scheme: dark;
+
+  --p-color-bg-primary: #212121;
+  --p-color-bg-secondary: #181818;
+  --p-color-bg-elevated: #2c2c2c;
+
+  --p-color-text-primary: #ffffff;
+  --p-color-text-secondary: #b4b4b4;
+  --p-color-text-tertiary: #9d9d9d;
+  --p-color-text-accent: #7cc0f7;
+  --p-color-text-danger: #ff8a80;
+
+  --p-color-border-default: #707070;
+  --p-color-border-subtle: #333333;
+  --p-color-divider: #3a3a3a;
+
+  --p-color-accent: #7cc0f7;
+  --p-color-link: #7cc0f7;
+
+  --p-color-action-primary-bg: #7cc0f7;
+  --p-color-action-primary-text: #00131f;
+  --p-color-action-danger-bg: #b3261e;
+  --p-color-action-danger-text: #ffffff;
+
+  --p-color-surface-section: #212121;
+  --p-color-surface-header: #1a1a1a;
+  --p-color-surface-tabbar: #1a1a1a;
+
+  --p-color-success: #81c784;
+  --p-color-warning: #ffb74d;
+  --p-color-destructive: #ff8a80;
+
+  /* ======================================================================
+   * 2. Производные цвета
+   * ==================================================================== */
+
+  /**
+   * Текущая поверхность под контентом.
+   *
+   * Компоненту, который вырезает собственный фон (метка поверх рамки поля,
+   * заглушка disabled), нельзя брать `--p-color-bg-primary`: он может лежать
+   * в модалке, карточке или секции с другим фоном — и тогда вокруг него
+   * появляется прямоугольник чужого цвета.
+   *
+   * Вместо этого он берёт `--p-surface`, а каждый контейнер, который красит
+   * свой фон, тут же переопределяет эту переменную на собственное значение.
+   * Значение наследуется по дереву, поэтому вложенность работает сама собой.
+   */
+  --p-surface: var(--p-color-bg-primary);
+
+  /**
+   * Поверхность, приподнятая ОТНОСИТЕЛЬНО текущей.
+   *
+   * Отличается от `--p-color-bg-elevated` тем, что считается от `--p-surface`,
+   * а не от фона приложения. Поэтому заметна на любой подложке: и на экране,
+   * и внутри модалки, и внутри карточки — там, где фиксированный цвет
+   * приподнятой поверхности слился бы с контейнером.
+   *
+   * Для заливки полей ввода, вложенных плашек и подобного.
+   */
+  --p-color-surface-raised: color-mix(
+    in srgb,
+    var(--p-color-text-primary) 7%,
+    var(--p-surface)
+  );
+
+  /* Полупрозрачные заливки: ложатся на любую поверхность без подгонки */
+  --p-color-fill-accent: color-mix(
+    in srgb,
+    var(--p-color-accent) 12%,
+    transparent
+  );
+  --p-color-fill-neutral: color-mix(
+    in srgb,
+    var(--p-color-text-primary) 8%,
+    transparent
+  );
+
+  /* Состояния интерактивных поверхностей */
+  --p-color-surface-hover: color-mix(
+    in srgb,
+    var(--p-color-text-primary) 6%,
+    transparent
+  );
+  --p-color-surface-active: color-mix(
+    in srgb,
+    var(--p-color-text-primary) 12%,
+    transparent
+  );
+
+  /* Скелетоны загрузки */
+  --p-color-skeleton-from: color-mix(
+    in srgb,
+    var(--p-color-text-primary) 5%,
+    transparent
+  );
+  --p-color-skeleton-to: color-mix(
+    in srgb,
+    var(--p-color-text-primary) 11%,
+    transparent
+  );
+
+  /* Оверлеи */
+  --p-color-overlay-backdrop: rgba(0, 0, 0, 0.6);
+  --p-color-overlay-inverse-bg: rgba(0, 0, 0, 0.85);
+  --p-color-overlay-inverse-text: #ffffff;
+
+  /* Кольцо фокуса — отдельный токен, чтобы менять независимо от ссылок */
+  --p-color-focus-ring: var(--p-color-link);
+
+  /**
+   * Статические цвета.
+   *
+   * Только для контента поверх изображений, QR-кодов и видео, где фон
+   * не зависит от темы. Всё остальное обязано ходить через токены темы.
+   */
+  --p-color-static-white: #ffffff;
+  --p-color-static-black: #000000;
+
+  /* Подсветка кода */
+  --p-color-code-primary: var(--p-color-accent);
+  --p-color-code-secondary: #b00fb4;
+  --p-color-code-tertiary: #3a9f20;
+
+  /* ======================================================================
+   * 3. Не-цветовые токены
+   * ==================================================================== */
+
+  --p-font-family:
+    system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Apple Color Emoji",
+    "Helvetica Neue", sans-serif;
+
+  --p-font-weight-accent1: 700;
+  --p-font-weight-accent2: 600;
+  --p-font-weight-accent3: 400;
+
+  --p-large-title-font-size: 34px;
+  --p-large-title-line-height: 42px;
+
+  --p-title1-font-size: 28px;
+  --p-title1-line-height: 36px;
+  --p-title2-font-size: 24px;
+  --p-title2-line-height: 32px;
+  --p-title3-font-size: 20px;
+  --p-title3-line-height: 24px;
+
+  --p-headline-font-size: 19px;
+  --p-headline-line-height: 28px;
+
+  --p-text-font-size: 17px;
+  --p-text-line-height: 26px;
+
+  --p-subheadline1-font-size: 16px;
+  --p-subheadline1-line-height: 24px;
+  --p-subheadline2-font-size: 15px;
+  --p-subheadline2-line-height: 22px;
+
+  --p-caption1-font-size: 13px;
+  --p-caption1-line-height: 20px;
+  --p-caption2-font-size: 11px;
+  --p-caption2-line-height: 16px;
+
+  --p-border-width: 1px;
+  --p-shadow-section: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+  --p-z-simple: 1;
+  --p-z-skeleton: 2;
+  --p-z-overlay: 3;
+
+  --p-safe-area-inset-bottom: 0px;
+}
+
+/* На экранах высокой плотности волосяная линия тоньше физического пикселя */
+@media (min-resolution: 2dppx) {
+  :root {
+    --p-border-width: 0.5px;
+  }
+}
+
+@supports (padding-top: constant(safe-area-inset-bottom)) {
+  :root {
+    --p-safe-area-inset-bottom: constant(safe-area-inset-bottom);
+  }
+}
+
+@supports (padding-top: env(safe-area-inset-bottom)) {
+  :root {
+    --p-safe-area-inset-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/**
+ * Фолбэк для браузеров без color-mix (Safari < 16.2).
+ *
+ * Прозрачные заливки заменяются на непрозрачные приближения: выглядит
+ * чуть хуже на цветных подложках, но остаётся читаемым.
+ */
+@supports not (color: color-mix(in srgb, #000 50%, transparent)) {
+  :root {
+    --p-color-surface-raised: var(--p-color-bg-elevated);
+    --p-color-fill-accent: var(--p-color-bg-elevated);
+    --p-color-fill-neutral: var(--p-color-bg-elevated);
+    --p-color-surface-hover: var(--p-color-bg-elevated);
+    --p-color-surface-active: var(--p-color-bg-elevated);
+    --p-color-skeleton-from: var(--p-color-bg-secondary);
+    --p-color-skeleton-to: var(--p-color-bg-elevated);
+  }
+}

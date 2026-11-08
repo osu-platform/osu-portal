@@ -1,0 +1,106 @@
+/**
+ * FormInput
+ *
+ * Обёртка поля ввода с меткой, врезанной в рамку.
+ *
+ * Все фоны здесь берут `--p-surface` — цвет поверхности, на которой поле
+ * реально лежит. Раньше стоял `--p-color-bg-primary`, то есть поле всегда
+ * рисовало «фон приложения»: внутри модалки, секции или карточки вокруг него
+ * появлялся прямоугольник чужого цвета. Контейнеры переопределяют
+ * `--p-surface` на свой фон, см. src/styles/tokens.css
+ */
+
+.wrapper--base {
+  position: relative;
+  padding: 20px 22px 16px 22px;
+  background: var(--p-surface);
+}
+
+.wrapper--base .title {
+  position: absolute;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  top: 6px;
+  left: 32px;
+  /* We can't use the right option because it will be stretched, and we need the container to be small if the text is short */
+  max-width: calc(100% - 32px * 2 - 22px);
+
+  border-radius: 5px;
+  padding: 0 6px;
+  color: var(--p-color-text-tertiary);
+
+  /* Метка перекрывает рамку — её фон обязан совпасть с фоном под полем */
+  background: var(--p-surface);
+}
+
+.wrapper--disabled {
+  position: relative;
+  pointer-events: none;
+}
+
+.wrapper--ios.wrapper--disabled {
+  opacity: 0.35;
+}
+
+/**
+ * Заглушка недоступного поля: приглушает содержимое цветом поверхности.
+ * Именно она сильнее всего выдавала несовпадение фонов.
+ */
+.wrapper--base.wrapper--disabled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: var(--p-surface);
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.before,
+.after {
+  display: flex;
+}
+
+/* Рамка поля — единственный признак его границы, поэтому borderDefault,
+   который проверяется на контраст 3:1, а не декоративный borderSubtle */
+.wrapper--base .body {
+  border-radius: 14px;
+  box-shadow: 0 0 0 2px var(--p-color-border-default);
+}
+
+.wrapper--base.wrapper--error .title {
+  color: var(--p-color-text-danger);
+}
+
+.wrapper--base.wrapper--error .body {
+  box-shadow: 0 0 0 2px var(--p-color-text-danger);
+}
+
+.wrapper--base.wrapper--focused .title {
+  color: var(--p-color-focus-ring);
+}
+
+.wrapper--base.wrapper--focused .body {
+  box-shadow: 0 0 0 2px var(--p-color-focus-ring);
+}
+
+/**
+ * iOS-вариант: поле — заливка без рамки, поэтому оно обязано отличаться
+ * от подложки. Отсчёт идёт от текущей поверхности, а не от фона приложения,
+ * иначе внутри модалки или карточки поле сливается с контейнером.
+ */
+.wrapper--ios .body {
+  border-radius: 12px;
+  background: var(--p-color-surface-raised);
+}
+
+.wrapper--ios.wrapper--error .body {
+  box-shadow: 0 0 0 1.5px var(--p-color-text-danger);
+}

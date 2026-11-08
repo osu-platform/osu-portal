@@ -1,0 +1,31 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.menu {
+  background: var(--p-color-bg-secondary);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 240px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.divider {
+  height: 2px;
+  background: var(--p-color-divider);
+  margin: 0.25rem 0;
+  border-radius: 999px;
+}
+
+.active {
+  background: var(--p-color-divider);
+}
+
+.hint {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.75rem;
+  color: var(--p-color-text-tertiary);
+}

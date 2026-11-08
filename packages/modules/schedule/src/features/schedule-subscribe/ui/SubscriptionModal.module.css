@@ -1,0 +1,85 @@
+.container {
+  padding: 0 0 24px;
+  min-height: 220px;
+}
+
+.titleRow {
+  padding: 4px 16px 12px;
+}
+
+.title {
+  font-size: 17px;
+  display: block;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 2px;
+  color: var(--p-color-text-tertiary);
+  font-size: 13px;
+}
+
+.hint {
+  display: block;
+  padding: 0 16px 12px;
+  color: var(--p-color-text-tertiary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.conflictMsg {
+  display: block;
+  margin: 0 16px 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  /* Подложка предупреждения — оттенок статусного цвета темы,
+     а не захардкоженный красный */
+  background-color: color-mix(
+    in srgb,
+    var(--p-color-destructive) 12%,
+    transparent
+  );
+  color: var(--p-color-text-danger);
+  font-size: 13px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.optionCell {
+  cursor: pointer;
+}
+
+.cellActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.deleteBtn {
+  color: var(--p-color-text-tertiary) !important;
+}
+
+.deleteBtn:hover {
+  color: var(--p-color-text-danger) !important;
+}
+
+.footer {
+  padding: 12px 16px 0;
+}
+
+.customInputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.customInputWrapper {
+  flex: 1;
+  min-width: 0;
+}

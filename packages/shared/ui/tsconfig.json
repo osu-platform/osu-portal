@@ -1,0 +1,23 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "helpers/*": ["./src/helpers/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "types/*": ["./src/types/*"],
+      "icons/*": ["./src/icons/*"],
+      "components/*": ["./src/components/*"],
+      "components/Typography/*": ["./src/components/typography/*"],
+      "components/Navigation/*": ["./src/components/navigation/*"],
+      "components/Layout/*": ["./src/components/layout/*"],
+      "components": ["./src/components/index.ts"],
+      "storybook/*": ["./src/storybook/*"]
+    }
+  },
+  "include": ["src"],
+  "files": ["./types/declarations.d.ts"]
+}

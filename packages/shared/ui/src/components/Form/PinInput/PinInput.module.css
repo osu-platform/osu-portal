@@ -1,0 +1,100 @@
+.wrapper {
+  overflow: hidden;
+
+  position: fixed;
+  inset: 0;
+  padding: 32px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  background: var(--p-color-bg-primary);
+}
+
+.header {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  max-inline-size: 100%;
+  flex: 1 1 0;
+}
+
+.wrapper--ios .header {
+  flex: unset;
+}
+
+.header,
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.title {
+  text-align: center;
+  max-inline-size: 100%;
+}
+
+.cellsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.buttonWrapper {
+  --p-pin-input-buttons-gap: 12px;
+  --p-pin-input-button-width: 33.3%;
+
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--p-pin-input-buttons-gap);
+  margin-top: 52px;
+}
+
+.wrapper--ios .buttonWrapper {
+  --p-pin-input-button-width: 76px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: var(--p-pin-input-buttons-gap);
+}
+
+.row:last-child {
+  justify-content: flex-end;
+}
+
+.row--no-biometric:last-child {
+  margin-left: calc(var(--p-pin-input-buttons-gap) * 2);
+}
+
+.wrapper--ios .row:last-child {
+  justify-content: center;
+}
+
+.wrapper--ios .row--no-biometric:last-child {
+  margin-left: calc(
+    var(--p-pin-input-button-width) + var(--p-pin-input-buttons-gap)
+  );
+}
+
+.actionButton {
+  display: block;
+  margin: auto;
+  color: var(--p-color-link);
+}

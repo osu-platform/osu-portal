@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  display: table;
+  width: max-content;
+}
+
+.wrapper::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: var(--p-color-bg-primary);
+  background-image: radial-gradient(var(--p-color-text-tertiary) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  z-index: var(--p-z-simple);
+  transition: 0.4s ease;
+}
+
+/**
+ * В светлой теме анимация скрытия инвертируется, поэтому под неё нужен
+ * чёрный фон. Ветка по схеме берётся из data-атрибута, который проставляет
+ * ThemeProvider, а не из подстроки inline-стиля, как было раньше.
+ */
+:root[data-p-scheme="light"] .wrapper::before {
+  filter: invert(1);
+  background-color: var(--p-color-static-black);
+}
+
+.wrapper--visible::before {
+  opacity: 0;
+}

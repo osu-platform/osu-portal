@@ -1,0 +1,79 @@
+.wrapper {
+  --p-cell-middle-padding: 16px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.wrapper--ios {
+  gap: 16px;
+}
+
+.wrapper--hovered {
+  background: var(--p-color-bg-primary);
+}
+
+.before,
+.after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  flex-grow: 1;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+
+  padding: var(--p-cell-middle-padding);
+}
+
+.middle > *,
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapper:not(.wrapper--multiline) .middle > *,
+.wrapper:not(.wrapper--multiline) .title {
+  white-space: nowrap;
+}
+
+.subhead {
+  color: var(--p-color-text-secondary);
+}
+
+.head {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hint {
+  color: var(--p-color-text-tertiary);
+}
+
+.subtitle {
+  color: var(--p-color-text-tertiary);
+}
+
+.description {
+  color: var(--p-color-text-tertiary);
+}
+
+.wrapper--ios {
+  --p-cell-middle-padding: 12px 0;
+  padding: 0 16px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wrapper:hover {
+    background: var(--p-color-bg-primary);
+  }
+}

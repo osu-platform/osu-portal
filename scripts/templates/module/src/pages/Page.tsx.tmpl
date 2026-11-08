@@ -1,0 +1,24 @@
+import React from "react"
+import { useSdkEnvironment, useSdkUser } from "@portal/module-sdk"
+
+export const __MODULE_PASCAL__Page: React.FC = () => {
+  const user = useSdkUser()
+  const environment = useSdkEnvironment()
+
+  return (
+    <div style={{ padding: 20, fontFamily: "Roboto, system-ui, sans-serif" }}>
+      <h1 style={{ fontSize: 20, margin: "0 0 8px" }}>__MODULE_TITLE__</h1>
+      <p style={{ opacity: 0.6, fontSize: 14, margin: 0 }}>
+        {user.isAuthenticated
+          ? `Привет, ${user.firstName ?? "студент"}!`
+          : "Вы вошли как гость — персональные функции скрыты."}
+      </p>
+      <p style={{ opacity: 0.45, fontSize: 12, marginTop: 16 }}>
+        Платформа: {environment.platform} · данные:{" "}
+        {environment.isMock ? "моки" : "боевые"}
+      </p>
+    </div>
+  )
+}
+
+export default __MODULE_PASCAL__Page
